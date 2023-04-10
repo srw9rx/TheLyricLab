@@ -10,6 +10,13 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <!-- jquery -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
     <title>My Bootstrap Page</title>
   </head>
   <body>
@@ -26,7 +33,9 @@
             required
           />
         </div>
-        <button type="submit" class="btn btn-primary">Generate</button>
+        <button type="submit" class="btn btn-primary" id="run-generate-rap">
+          Generate
+        </button>
       </form>
       <div class="mt-3">
         <label for="output" class="form-label">Output:</label>
@@ -39,6 +48,28 @@
         ></textarea>
       </div>
     </div>
+
+    <script>
+      document
+        .getElementById("run-generate-rap")
+        .addEventListener("click", function () {
+          var xhr = new XMLHttpRequest();
+          var promptValue = encodeURIComponent(
+            document.getElementById("promptInput").value
+          );
+          xhr.open("GET", "/RapGen/run-generate-rap/?prompt=" + promptValue);
+          xhr.onload = function () {
+            if (xhr.status === 200) {
+              var data = JSON.parse(xhr.responseText);
+              
+              document.getElementById("output").innerHTML = data.output;
+            } else {
+              console.log("xhr.status was ", xhr.status);
+            }
+          };
+          xhr.send();
+        });
+    </script>
 
     <!-- Bootstrap JS (you may need jQuery and Popper.js too) -->
     <script
