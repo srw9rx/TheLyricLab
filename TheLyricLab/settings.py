@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-bl1k4r=&m9@vakac+4-o8y1cuv_o)^lvh_d=q)74u^+dd2ggs1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lyriclab.herokuapp.com']
 
 
 # Application definition
