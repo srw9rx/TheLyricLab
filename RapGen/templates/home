@@ -60,12 +60,12 @@
           );
           console.log("promptValue is ", promptValue);
           console.log("Calling xhr");
-          xhr.open("GET", "/RapGen/run-generate-rap/?prompt=" + promptValue);
+          xhr.open("GET", "/run-generate-rap/?prompt=" + promptValue);
           xhr.onload = function () {
             if (xhr.status === 200) {
               var data = JSON.parse(xhr.responseText);
               console.log("Success! data is " + data.output);
-              <!-- document.getElementById("output").innerHTML = data.output; -->
+              document.getElementById("output").innerHTML = data.output;
             } else {
               console.log("xhr.status was ", xhr.status);
             }
