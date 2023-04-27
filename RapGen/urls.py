@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 # app_name = 'RapGen'
 urlpatterns = [
     #path('', lambda req: redirect('/')),
-    #path('', index),
+    path('', index),
     #path('run-generate-rap/', indexrap),
     path('home/', home, name='home'),
     path('run-generate-rap/', run_generate_rap, name='run-generate-rap')
